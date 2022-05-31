@@ -11,9 +11,11 @@
   "description": "",
   "dependencies": {
     "bootstrap": "^5.1.3",
+    "express": "^4.18.1",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.16"
   }
 }

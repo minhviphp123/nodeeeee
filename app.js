@@ -1,24 +1,14 @@
-const http = require('http');
-const { url } = require('inspector');
-const { reset } = require('nodemon');
+const express = require('express');
+const morgan = require('morgan');
+const app = express();
+const port = 3000;
 
-const server = http.createServer((req, res) => {
-    if (req.url === '/') {
-        res.end('You are at home page!');
-    }
+app.use(morgan('combined'));
 
-    if (req.url === '/about') {
-        //BLOCKING CODE!!
-        for (let i = 0; i < 1000; i++) {
-            for (let j = 0; j < 1000; j++) {
-                console.log(`${i} ${j}`)
-            }
-        }
-        res.end('About Page');
-    }
+app.get('/', (req, res) => {
+    return res.send('Hello World!');
+})
 
-});
-
-server.listen(5000, () => {
-    console.log('Server is Listening in port 5000...')
+app.listen(port, () => {
+    console.log(`http://localhost:${port}`);
 })
